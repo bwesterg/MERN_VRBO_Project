@@ -14,3 +14,4 @@ Install steps/dependencies used
 2) (Tailwind CSS, in client, ensure using node 18 or higher) 
     npm install -D tailwindcss autoprefixer
     npx tailwindcss init
+3) 
