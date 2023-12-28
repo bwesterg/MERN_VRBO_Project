@@ -17,3 +17,4 @@ Install steps/dependencies used
 3) (in client) 
 4) (in api) use Node 18 or up, and 'npm install express'
 5) (in api) run 'nodemon index.js'
+6) (in client) run 'npm install axios'
