@@ -18,3 +18,5 @@ Install steps/dependencies used
 4) (in api) use Node 18 or up, and 'npm install express'
 5) (in api) run 'nodemon index.js'
 6) (in client) run 'npm install axios'
+7) (in api) run 'npm install mongoose'
+8) (in api) run 'npm install dotenv --save'
