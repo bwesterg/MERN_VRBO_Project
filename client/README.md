@@ -20,3 +20,4 @@ Install steps/dependencies used
 6) (in client) run 'npm install axios'
 7) (in api) run 'npm install mongoose'
 8) (in api) run 'npm install dotenv --save'
+9) (in api) run 'npm install bcrypt'
