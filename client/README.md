@@ -21,3 +21,4 @@ Install steps/dependencies used
 7) (in api) run 'npm install mongoose'
 8) (in api) run 'npm install dotenv --save'
 9) (in api) run 'npm install bcrypt'
+10) (in api) run 'npm install jsonwebtoken'
