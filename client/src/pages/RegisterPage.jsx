@@ -7,8 +7,8 @@ export default function RegisterPage() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    async function registerUser(event) {
-        event.preventDefault();
+    async function registerUser(ev) {
+        ev.preventDefault();
         try {
             await axios.post('/register', {
                 name,
@@ -16,9 +16,9 @@ export default function RegisterPage() {
                 password,
             });
         
-            alert('registration successful. now you can login.')
+            alert('Registration successful. Now you can login.');
         } catch (e) {
-            alert('registration failed. email or password already used.')
+            alert('Registration failed. Email or password already used.');
         }
     }
 
@@ -32,19 +32,19 @@ export default function RegisterPage() {
                         type="text" 
                         placeholder="First Last" 
                         value={name} 
-                        onChange={event => setName(event.target.value)} 
+                        onChange={ev => setName(ev.target.value)} 
                     />
                     <input 
                         type="email" 
                         placeholder="your@email.com"  
                         value={email}
-                        onChange={event => setEmail(event.target.value)}
+                        onChange={ev => setEmail(ev.target.value)}
                     />
                     <input 
                         type="password" 
                         placeholder="password" 
                         value={password}
-                        onChange={event=>setPassword(event.target.value)}    
+                        onChange={ev=>setPassword(ev.target.value)}    
                     />
                     <button className="primary">Register</button>
                     <div className="text-center py-2 text-gray-500">
