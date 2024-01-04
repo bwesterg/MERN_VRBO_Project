@@ -6,13 +6,16 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const app = express();
 const User = require('./models/User.js');
+const cookieParser = require('cookie-parser');
+
 require('dotenv').config();
 
-app.use(express.json());
 
 const bcryptSalt = bcrypt.genSaltSync(10);
 const jwtSecret = 'kjasdfuidk77dbdbujj4k4';
 
+app.use(express.json());
+app.use(cookieParser());
 app.use(cors({
     credentials: true,
     origin: 'http://localhost:5173',
@@ -24,7 +27,8 @@ mongoose.connect(process.env.MONGO_URL);
 
 
 app.get('/test', (req, res) => {
-    res.json('test ok4');
+    mongoose.connect(process.env.MONGO_URL);
+    res.json('test ok5');
 });
 
 app.post('/register', async (req, res) => {
@@ -43,17 +47,19 @@ app.post('/register', async (req, res) => {
 });
 
 app.post('/login', async (req, res) => {
+    mongoose.connect(process.env.MONGO_URL);
     const {email, password} = req.body;
     const userDoc = await User.findOne({email});
     if (userDoc) {
         const passOk = bcrypt.compareSync(password, userDoc.password);
         if (passOk) {
-            jwt.sign({email:userDoc.email, id:userDoc._id}, jwtSecret, {}, (err, token) => {
-                //^^uses underscore for id b/c mongodb uses underscore
-                if (err) throw err;
-                res.cookie('token', token).json(userDoc);
-
-            })
+            jwt.sign({
+                    email:userDoc.email, 
+                    id:userDoc._id
+                }, jwtSecret, {}, (err, token) => {
+                    if (err) throw err;
+                    res.cookie('token', token).json(userDoc);
+            });
         } else {
             res.status(422).json('password NOT ok');
         }
@@ -61,5 +67,11 @@ app.post('/login', async (req, res) => {
         res.json('not found');
     }
 });
+
+app.get('/profile', (req,res) => {
+    mongoose.connect(process.env.MONGO_URL);
+    const {token} = req.cookies;
+    res.json({token});
+})
 
 app.listen(4000);
