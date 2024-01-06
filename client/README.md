@@ -8,8 +8,7 @@ Currently, two official plugins are available:
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
 
-Install steps/dependencies used
-
+I. Install steps/dependencies used
 1) Vite w Javascript
 2) (Tailwind CSS, in client, ensure using node 18 or higher) 
     npm install -D tailwindcss autoprefixer
@@ -22,3 +21,7 @@ Install steps/dependencies used
 8) (in api) run 'npm install dotenv --save'
 9) (in api) run 'npm install bcrypt'
 10) (in api) run 'npm install jsonwebtoken'
+
+
+II. Icons reference
+ -- obtained from https://heroicons.com
