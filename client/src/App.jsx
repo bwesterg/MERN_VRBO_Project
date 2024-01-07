@@ -25,6 +25,8 @@ function App() {
           <Route path="/account/places" element={<AccountPage />}/> */}
 
           <Route path="/account/:subpage?" element={<AccountPage />}/>
+          <Route path="/account/:subpage/:action" element={<AccountPage />}/>
+
 
         </Route>
       </Routes>
@@ -34,3 +36,6 @@ function App() {
 }
 
 export default App;
+
+ 
+
